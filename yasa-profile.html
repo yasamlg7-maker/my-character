@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>My Character</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+    
+
+    <style>
+
+        /*
+        CSS AWAL
+
+        Anak bebas mengembangkan sendiri.
+        */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #151f3a;
+            color: white;
+
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+
+        /* CONTAINER */
+        .container {
+            background-color: transparent;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: #233F7A;
+            color: white;
+            padding: 17px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 29px;
+            font-weight: bold;
+        }
+
+        .logo-icon {
+            font-size: 18px;
+        }
+
+        .logo i {
+            color: white;
+            margin-right: 5px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 18px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            padding: 10px 18px;
+            border-radius: 25px;
+        }
+
+        .menu a.active {
+            background-color: #347AF4;
+        }
+
+        /* MAIN CARD */
+        .main-card {
+            background-color: #324154;
+            padding: 23px;
+            border-radius: 12px;
+            border: 2px solid #64748B;
+        }
+
+        .content-area {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 16px;
+            align-items: start;
+
+            background-color:  #1E356D;
+            padding: 22px 20px;
+            border-radius: 20px;
+            border: 2px solid #294783;
+
+            margin-top: 20px;
+        }
+
+        .right-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        /* CHARACTER */
+        .character {
+            text-align: center;
+            padding: 1px 0 24px;
+        }
+        
+
+        /* LOGO YG DI ATAS NAMA YASA */
+        .avatar {
+            width: 200px;
+            height: 200px;
+
+            background-color: #5498F8;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 20px;
+
+            overflow: hidden;
+
+            border: 6px solid #5498F8;
+
+            box-shadow: 0 0 20px rgba(84, 152, 248, 0.4);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .character h1 {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 50px;
+        }
+
+        .level {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            background-color: #294783;
+            color: white;
+
+            padding: 10px 25px;
+            border-radius: 30px;
+
+            font-size: 20px;
+            font-weight: 800;
+
+            margin-bottom: 19px;
+        }
+
+        .role {
+            color: #61a3ea;
+            font-size: 25px;
+            margin-bottom: 10px;
+            margin-bottom: 50px;
+        }
+
+        .quote {
+            color: #ffffff;
+            font-size: 20px;
+            line-height: 17px;
+            margin: 0 0 24px;
+        }
+
+        
+        /* PANELS */
+        .panel {
+            background-color: #233F7A;
+            padding: 25px 30px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .panel-title {
+            font-size: 25px;
+            margin-bottom: 22px;
+        }
+
+        .panel-title i {
+            color: #61C5F5;
+            margin-right: 5px;
+        }
+
+        /* Judul Stat */
+        .stat-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .stat-title span {
+            font-size: 35px;
+        }
+
+        .stat-title h2 {
+            color: white;
+            font-size: 30px;
+            margin: 0;
+        }
+
+        /* STATS */
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 24px;
+        }
+
+        .stat-icon {
+            width: 50px;
+            font-size: 32px;
+            text-align: center;
+        }
+
+        .stat-content {
+            flex: 1;
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 10px;
+
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .stat-name {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .stat-info {
+            flex: 1;
+        }
+
+        .stat-name {
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .stat:last-child {
+            margin-bottom: 10px;
+        }
+
+
+        .progres {
+            width: 100%;
+            height: 19px;
+            background: #182d60;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+
+        .progres-fill {
+            height: 100%;
+            border-radius: 50px;
+        }
+
+        .progres-bar {
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .hp-fill {
+            width: 80%;
+            background-color: #FA656D;
+        }
+
+        .energy-fill {
+            width: 60%;
+            background-color: #FBCF6E;
+        }
+
+        .coding-fill {
+            width: 70%;
+            background-color: #6E6AF3;
+        }
+
+
+        /* KOTAK SETIAP SKILL */
+        .skill {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .skill-card {
+            padding: 12px 5px;
+            border-radius: 16px;
+            margin-top: 0;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            color: white;
+            min-height: 140px;
+            transition: 0.2s ease;
+        }
+
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+
+        .skill-card.html {
+            background-color: #81485f9d;
+        }
+
+        .skill-card.css {
+            background-color: #285b99bb;
+        }
+
+        .skill-card.python {
+            background-color: #287c7bc2;
+        }
+
+        .skill-card.gaming {
+            background-color: #5b48a6af;
+        }
+
+
+        /* tempat semua skil */
+
+        .skill-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+
+        .skill-icon {
+            width: 65px;
+            height: 65px;
+            font-size: 40px;
+            line-height: 1;
+            object-fit: contain;
+            margin-bottom: 5px;
+        }
+
+        /* WARNA ICON */
+
+        .skill-card.html .skill-icon {
+            color: #ff7043;
+        }
+
+        .skill-card.css .skill-icon {
+            color: #2196f3;
+        }
+
+        .skill-card.python .skill-icon {
+            color: #ffd43b;
+        }
+
+        .skill-card.gaming .skill-icon {
+            color: white;
+        }
+
+        .skill-card p {
+            margin: 0;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .stars {
+            font-size: 18px;
+            color: #facc15;
+            letter-spacing: 2px;
+        }
+
+        /* BUTTON */
+        .start-button {
+            width: 60%;
+            border: none;
+            background-color: #347AF4;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px auto 0;
+            display: block;
+        }
+
+        .start-button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+
+       /*bintang*/
+        .star {
+            position: fixed;
+            z-index: 10;
+            color: #FFD65A;
+            font-size: 50px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .star-left {
+            top: 20%;
+            left: 3%;
+        }
+        .star-right {
+            top: 48%;
+            right: 3%;
+        }
+
+        /*titik biru*/
+        .dot {
+            position: fixed;
+            z-index: 10;
+            width: 13px;
+            height: 13px;
+            background: #6595F5;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .dot-left {
+            top: 43%;
+            left: 7%;
+        }
+
+        .dot-right {
+            top: 27%;
+            right: 4%;
+        }
+
+        .dot-bottom {
+            bottom: 30%;
+            right: 7%;
+        }
+
+        /* GUNUNG */
+        .mountain {
+            position: fixed;
+            bottom: 0;
+            width: 240px;
+            height: 200px;
+            background: #263F7D;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .mountain-left {
+            left: 0;
+            clip-path: polygon(
+                0 25%,
+                12% 18%,
+                28% 42%,
+                43% 68%,
+                55% 82%,
+                70% 72%,
+                100% 100%,
+                0 100%
+            );
+        }
+
+        .mountain-right {
+            right: 0;
+            clip-path: polygon(
+                0 100%,
+                25% 78%,
+                42% 65%,
+                58% 38%,
+                76% 8%,
+                86% 24%,
+                100% 45%,
+                100% 100%
+            );
+        }
+
+        /* KARTU DI DEPAN GUNUNG */
+
+        /*  gunung depan */
+        .mountain-front {
+            position: fixed;
+            bottom: 0;
+            width: 250px;
+            height: 130px;
+            background-color: #1D326B;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .mountain-front-left {
+            left: 0;
+            clip-path: polygon(
+                0 35%,
+                15% 15%,
+                32% 45%,
+                48% 75%,
+                60% 55%,
+                78% 80%,
+                100% 100%,
+                0 100%
+            );
+        }
+
+        .mountain-front-right {
+            right: 0;
+            clip-path: polygon(
+                0 100%,
+                22% 75%,
+                40% 85%,
+                58% 48%,
+                76% 0,
+                88% 22%,
+                100% 35%,
+                100% 100%
+            );
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+       
+        /* FONT BULAT UNTUK JUDUL DAN TOMBOL */
+        .logo,
+        .character h1,
+        .panel-title,
+        .stat-title h2,
+        .avatar,
+        .character,
+        .container,
+        .start-button {
+            font-family: 'Baloo 2', cursive;
+            font-weight: 700;
+        }
+
+        /* FONT UNTUK LEVEL DAN NAMA SKILL */
+        .level,
+        .skill-card p,
+        .menu a {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+        }
+
+        /* FONT UNTUK DESKRIPSI */
+        .role,
+        .quote,
+        .stat-name,
+        .stars {
+            font-family: 'Nunito', sans-serif;
+        }
+
+        @media (max-width: 900px) {
+    /* aturan responsive tablet */
+            body {
+                padding: 13px;
+            }
+            
+            .container {
+                    width: 100%;
+                    max-width: 100%;
+                    overflow: visible;
+            }
+
+            .content-area {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 20px;
+                padding: 20px;
+            }
+
+            .character {
+                width: 100%;
+                padding-bottom: 10px;
+            }
+
+            .right-content {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .skill {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .panel {
+                padding: 22px;
+            }
+
+            .star,
+            .dot {
+                z-index: 0;
+            }
+
+        }
+
+        /* ==========================
+            RESPONSIVE HP
+        ========================== */
+        @media (max-width: 600px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 12px;
+                padding: 14px 10px;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .menu a {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+
+            .content-area {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 16px;
+                padding: 14px;
+                margin-top: 14px;
+                border-radius: 16px;
+            }
+
+            .avatar {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 14px;
+            }
+
+            .character h1 {
+                font-size: clamp(28px, 8vw, 38px);
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            .level {
+                font-size: 16px;
+                padding: 8px 18px;
+                margin-bottom: 14px;
+            }
+
+            .role {
+                font-size: 20px;
+                margin-bottom: 24px;
+            }
+
+            .quote {
+                font-size: 16px;
+                line-height: 1.4;
+                overflow-wrap: anywhere;
+            }
+
+            .panel {
+                padding: 16px;
+                border-radius: 16px;
+                margin-bottom: 12px;
+            }
+
+            .panel-title {
+                font-size: 23px;
+                margin-bottom: 18px;
+            }
+
+            .stat {
+                gap: 8px;
+                margin-bottom: 20px;
+            }
+
+            .stat-icon {
+                width: 34px;
+                flex-shrink: 0;
+                font-size: 25px;
+            }
+
+            .stat-info {
+                min-width: 0;
+            }
+
+            .stat-name {
+                gap: 8px;
+                font-size: 14px;
+            }
+
+            .progres {
+                height: 14px;
+            }
+
+            .skill {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .skill-card {
+                min-width: 0;
+                min-height: 125px;
+                padding: 12px 5px;
+            }
+
+            .skill-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 32px;
+            }
+
+            .skill-card p {
+                font-size: 15px;
+            }
+
+            .stars {
+                font-size: 15px;
+                letter-spacing: 1px;
+            }
+
+            .start-button {
+                width: 100%;
+                max-width: 280px;
+                padding: 12px;
+                font-size: 15px;
+                margin-top: 12px;
+            }
+
+            /* Dekorasi diperkecil agar tidak mengganggu */
+            .star {
+                font-size: 28px;
+            }
+
+            .star-left {
+                top: 15%;
+                left: 1%;
+            }
+
+            .star-right {
+                top: 45%;
+                right: 1%;
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+
+            .mountain {
+                width: 100px;
+                height: 90px;
+            }
+
+            .mountain-front {
+                width: 110px;
+                height: 65px;
+            }
+
+        }
+
+        /* ==========================
+            HP LAYAR SANGAT KECIL
+        ========================== */
+        @media (max-width: 380px) {
+            body {
+                padding: 6px;
+            }
+
+            .content-area {
+                padding: 10px;
+                gap: 12px;
+            }
+
+            .navbar {
+                padding: 12px 6px;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            .menu a {
+                padding: 7px 9px;
+                font-size: 12px;
+            }
+
+            .panel {
+                padding: 12px;
+            }
+
+            .stat-name {
+                font-size: 12px;
+            }
+
+            .skill {
+                gap: 7px;
+            }
+
+            .skill-card {
+                min-height: 115px;
+            }
+
+            .character h1 {
+                font-size: 27px;
+            }
+
+        }
+
+        
+    </style>
+
+</head>
+
+<body>
+    
+    <div class="container">
+
+    <!-- NAVBAR -->
+
+        <nav class="navbar">
+
+            <div class="logo">
+
+                <span class="logo-icon">
+                    <i class="fas fa-gamepad"></i>
+                </span>
+
+                <span>
+                My Character
+                </span>
+
+            </div>
+
+
+            <div class="menu">
+
+                <a href="#" class="active">
+                    Profile     
+                </a>
+
+                <a href="#">
+                    Skills     
+                </a>
+
+                <a href="#">
+                    About     
+                </a>
+
+            </div>
+
+        </nav>
+
+        <!-- MAIN -->
+        
+        <main class="content-area">
+
+            <!-- CHARACTER -->
+
+            <section class="character">
+
+                <div class="avatar">
+                    <img src="foto project.jpeg" alt="avatar">
+                </div>
+
+
+                <h1>
+                Yasa Anesta
+                </h1>
+
+
+                <div class="level">
+                    ⭐ Level 5
+                </div>
+
+
+                <p class="role">
+                    Beginner Coder
+                </p>
+
+
+                <p class="quote">
+
+                   "Hari ini belajar,<br>
+                   esok jadi lebih baik!"
+
+                </p>
+
+            </section>
+
+
+            <!-- STATS -->
+
+        <div class="right-content">
+
+            <div class="panel">
+
+                <h2 class="panel-title">
+                    <i class="fas fa-chart-simple"></i> Stats
+                </h2>
+
+
+                <div class="stat">
+
+                    <div class="stat-icon">
+                        ❤️
+                    </div>
+                    
+                    
+
+
+                    <div class="stat-info">
+
+                        <div class="stat-name">
+
+                            <span>HP -</span>
+                            
+
+                            <span>80 / 100</span>
+
+                        </div>
+
+
+                        <div class="progres">
+
+                            <div class="progres-bar hp-fill"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat">
+
+                    <div class="stat-icon">
+                        ⚡
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <div class="stat-name">
+
+                            <span>Energy -</span>
+
+                            <span>60 / 100</span>
+
+                        </div>
+
+
+                        <div class="progres">
+
+                            <div class="progres-bar energy-fill">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat">
+
+                    <div class="stat-icon">
+                        🧠
+                    </div>
+
+
+                    <div class="stat-info">
+
+                        <div class="stat-name">
+
+                            <span>Coding -</span>
+
+                            <span>70 / 100</span>
+
+                        </div>
+
+
+                        <div class="progres">
+
+                            <div class="progres-bar coding-fill"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SKILLS -->
+
+            <div class="panel">
+
+                <h2 class="panel-title"> ✨ Skills</h2>
+                
+                <div class="skill">
+                    
+                    <div class="skill-card html">
+
+                        <img src="html5logo-removebg-preview.png" class="skill-icon" alt="html">
+
+                        <p>HTML</p>
+                        <span class="stars"> ⭐ </span>
+
+                    </div>
+
+
+                    <div class="skill-card css">
+
+                        <img src="CSS-py-removebg-preview.png" class="skill-icon" alt="CSS">
+
+                        <p>CSS</p>
+
+                        <span class="stars">
+                            ⭐⭐
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="skill-card python">
+
+                        <img src="python--removebg-preview.png" class="skill-icon" alt="python">
+
+
+                        <p>Python</p>
+
+                        <span class="stars">
+                            ⭐⭐⭐
+                        </span>
+
+                    </div>
+
+
+
+                    <div class="skill-card gaming">
+
+                        <img src="gamestick-removebg-preview.png" class="skill-icon" alt="gaming">
+
+
+                        <p>Gaming</p>
+
+                        <span class="stars">
+                            ⭐⭐
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <button class="start-button"> ▶ Mulai Petualangan </button>
+
+        </div>
+
+        
+
+
+    </main>
+
+
+</div>
+    
+    
+    <!-- DEKORASI LATAR -->
+    <div class="star star-left">★</div>
+    <div class="star star-right">★</div>
+
+    <div class="dot dot-left"></div>
+    <div class="dot dot-right"></div>
+    <div class="dot dot-bottom"></div>
+
+    <div class="mountain mountain-left"></div>
+    <div class="mountain mountain-right"></div>
+
+    <div class="mountain-front mountain-front-left"></div>
+    <div class="mountain-front mountain-front-right"></div>
+
+
+</body>
+
+</html>
